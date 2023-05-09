@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
-    const [text, setText] = useState("Enter your text here...");
+    const [text, setText] = useState("Enter text here...");
     const handleOnChange=(e)=>{
         setText(e.target.value)
     }
@@ -40,7 +40,7 @@ export default function TextForm(props) {
         setText(newText.join(" "))
     }
     // const wordsCount =()=>{
-    //     if(document.getElementById("textarea1").value !== ''){
+    //     if(document.getElementById("textarea1").value != null){
     //         var text = document.getElementById("textarea1").value;
     //         console.log(text)
     //         var count = 0;
@@ -53,11 +53,14 @@ export default function TextForm(props) {
     //         }
     //         return count; 
     //     }
-       
+    //     else
+    //     {
+    //         document.getElementById("textarea1").value="ENter something"
+    //     } 
     // }
   return (
     <>
-   <div className="mb-3">
+   <div className="mb-3 mx-3">
         <h1>{props.heading}</h1>
         <textarea value={text} onChange={handleOnChange} className="form-control my-3" id="textarea1" rows="9"></textarea>
         <button type="button" className="btn btn-primary mx-3" onClick={handleUpperCase}>Upper Case</button>
@@ -65,10 +68,10 @@ export default function TextForm(props) {
         <button type="button" className="btn btn-success mx-3" onClick={handleClearText}>Clear text</button>
         <button type="button" className="btn btn-danger mx-3" onClick={handleCopyText}>Copy text</button>
         <button type="button" className="btn btn-warning mx-3" onClick={handleExtraSpace}>Remove Extra Space</button>
-    </div>wordsCount
+    </div>
     <div className='container my-3'>
         <p> Total words: 
-                        {/* {text.split(" ").length} & letters: {text.length} */}
+                        {text.split(" ").length} & letters: {text.length}
 
             {/* {wordsCount()} */}
             </p>
